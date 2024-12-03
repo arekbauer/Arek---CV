@@ -1,0 +1,307 @@
+%
+%Academic CV LaTeX Template
+% Author: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% License: MIT
+%
+% For errors, suggestions, or improvements, please contact:
+% Email: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-1mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-1mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Arkadiusz Bauer}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    07498 492059 | \href{mailto:arek.bauer12@gmail.com}{arek.bauer12@gmail.com} | 
+    \href{https://www.arekbauer.com}{arekbauer.com}
+    }
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/arkadiusz-bauer/}{arkadiusz-bauer} | 
+    \socialicon{\faGithub} \href{https://github.com/arekbauer}{arekbauer} | 
+    }
+\end{center}
+\vspace{-6mm}
+\begin{center}
+    \small{Bristol, UK}
+\end{center}
+
+\vspace{-6mm}
+
+\section{\textbf{Skills \& Objective}}
+\vspace{1mm}
+\small{
+I am a final-year computer science student working part-time at HPE. With strong problem-solving and testing skills, I’m excited to write quality code and contribute to development. Eager to offer a fresh perspective and a drive for innovation, I aim to make a meaningful impact on future projects.
+\vspace{1mm}
+ \resumeHeadingSkillStart
+  \resumeSubItem{Programming Languages:}
+    {Python, Java, C, Kotlin, Go, HTML/CSS, JavaScript, SQL}
+  \resumeSubItem{Tools \& Technologies:}
+    {Git, Django, Jira, Docker, Confluence, TestRail, Bugzilla, VMware, Jetpack Compose }
+ \resumeHeadingSkillEnd
+
+
+ 
+
+\section{\textbf{Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {{Hewlett Packard Enterprise}}{Bristol, UK}
+      {Systems and Software Engineer Intern}{July 2023 - PRESENT}
+      \resumeItemListStart
+        \item Designed and optimised Python-based automation test scripts, significantly reducing regression testing time and improving coverage
+        \item Authored and implemented detailed test plans to validate new product features, ensuring seamless integration and adherence to stringent quality standards
+        \item Executed feature testing on HPE storage products, including Nimble and HPE Alletra Storage MP arrays, to ensure optimal performance and reliability
+        \item Identified, verified, and resolved critical software bugs during regression cycles, contributing to enhanced software stability
+        \item Experienced in the full software testing lifecycle, including test execution, bug identification, reporting, and verification after fixes
+        \item Configured and maintained complex hardware configurations, including lab environments, networking, and vSphere virtual machines
+        \item Successfully collaborated across multiple SCRUM teams to deliver high-quality software solutions within tight deadlines
+        \item Organised charity events and contributed to the STEM learning group by sharing knowledge and experience through school assemblies and classroom activities.
+      \resumeItemListEnd 
+  \resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{University of Nottingham}{Nottingham, UK}
+{BSc Hons Computer Science w/ Year in Industry}{Sept 2021 - PRESENT}
+\resumeItemListStart
+\item Predicted a 2:1 degree
+Some highlights include: 
+\item Developing an Android app for my dissertation, utilizing Kotlin, Jetpack Compose, Firebase, and MVVM to explore the gamification of book reading.
+\item Creating a two-player Othello game in Java, alongside an AI to compete against
+\item Group project refactoring a MATLAB code base into C++
+\item Refactoring and improving a snake game from Java Swing to JavaFX
+\item Future final-year modules include: Machine Learning, Computer Security and Mobile Device Programming
+\resumeItemListEnd
+
+\resumeSubheading
+{St Mary Redcliffe Sixth Form}{Bristol, UK}
+{A Levels}{Sept 2019 - Jun 2021}
+\resumeItemListStart
+\item Computer Science - A*
+\item Mathematics - B
+\item Chemistry - B 
+\item Psychology - A (AS Level)
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Projects}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {Personal Web Portfolio}
+  {Tools: HTML/CSS, JavaScript, Django, Python}
+   {{}[\href{https://github.com/arekbauer/Personal-Portfolio-Project}{\textcolor{darkblue}{\faGithub}}]}
+  {}
+\resumeItemListStart
+  \item Developed a website showcasing my portfolio, using Django for the backend, featuring an introduction, project showcase, and experience highlights
+  \item Utilised Django for its ease of content management to update and modify site elements without altering the code
+  \item Applied responsive web design principles with HTML, CSS, and JavaScript to ensure compatibility across various devices and screen sizes
+  \item Implemented version control using Git to track changes and manage the development process effectively
+\resumeItemListEnd
+
+\resumeProject
+  {Event Management Automation}
+  {Tools: Python, Google Calendar API, external APIs}
+  {{}[\href{https://github.com/arekbauer/Event-Management-Automation}{\textcolor{darkblue}{\faGithub}}]}
+  {}
+\resumeItemListStart
+  \item Developed a Python application using the Google Calendar API to automate the creation of events for Valorant Esports matches and Pokémon Go activities
+  \item Leveraged external APIs to retrieve event data and manipulated it to ensure accurate and properly formatted integration with Google Calendar events
+  \item Implemented robust error handling and logging mechanisms for easy debugging
+  \item Utilised cron jobs to schedule the scripts for regular execution, ensuring timely automation of event creation and updates
+\resumeItemListEnd
+
+\resumeProject
+  {Harry Potter Universe CLI }
+  {Tools: Go, Go Cobra, Docker, external APIs}
+  {{}[\href{https://github.com/arekbauer/Harry-Potter-CLI}{\textcolor{darkblue}{\faGithub}}]}
+  {}
+\resumeItemListStart
+  \item Developed a command-line interface application in Go to retrieve spells and characters in the Wizarding World 
+  \item Implemented a random spell and character generator with a base command
+  \item Designed a character lookup feature allowing users to search for characters by name and filter results based on criteria such as house, gender, age, and more.
+  \item Utilised Go’s Cobra library to build robust command parsing and handling, ensuring user-friendly interaction and accurate responses.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-5mm}
+
+\section{\textbf{Volunteer Experience}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+\resumeProject
+  {DigiLocal}
+  {Python/Scratch Coding Volunteer}
+  {Sept 2023 - PRESENT}
+  {{}}
+\resumeItemListStart
+  \item Guided young coding enthusiasts in Scratch/Python projects
+  \item Provided technical support through answering questions, and offering advice to foster the development of coding skills.
+  \item Actively encouraged and nurtured the passion for coding among young learners.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\textbf{References available upon request}
+
+\end{document}
